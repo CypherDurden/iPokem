@@ -1,24 +1,45 @@
 //
 //  ContentView.swift
-//  iPokem
+//  iPockemon
 //
-//  Created by Vitor Lopes on 31/07/25.
+//  Created by Vitor Lopes on 29/07/25.
 //
+
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+     TabView {
+    
+            Pokebola()
+                .tabItem {
+                    Label(
+                        title: { Text("Pokebola") },
+                        icon: { Image(systemName: "cricket.ball") }
+                    )
+                }
+            Pokedex()
+                .tabItem {
+                    Label(
+                        title: { Text("Pokedex") },
+                        icon: { Image(systemName: "keyboard.onehanded.right.fill") }
+                    )
+                }
+         Procurados()
+             .tabItem {
+                 Label(
+                     title: { Text("Procurados") },
+                     icon: { Image(systemName: "person.3") }
+                 )
+             }
+
         }
-        .padding()
     }
 }
 
+
 #Preview {
     ContentView()
-}
+    }
+
