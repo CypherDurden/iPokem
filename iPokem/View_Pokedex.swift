@@ -22,6 +22,7 @@ struct Pokedex: View {
                 TextField("", text: $entrada).frame(width: 300, height: 50, alignment: .center).background(.gray.opacity(0.2)).cornerRadius(20)
             }
             Button(action :{
+                estaNaPokedex = false
                 contaConsulta += 1
                 pokemonPokedex = procuraNaPokedex(entrada)
                 if (pokemonPokedex != nil) {
@@ -76,9 +77,9 @@ struct Pokedex: View {
                     }
                 }
             }
-            
-            if (contaConsulta > 0) && pokemonPokedex == nil{
-                Text("Esse Pokemon NÃO está na Pokedex ou NÃO existe")
+                
+            if (contaConsulta > 0) && !estaNaPokedex {
+                Text("Suposto Pokemon NÃO está na Pokedex")
             }
         }
     }
@@ -93,6 +94,7 @@ func procuraNaPokedex(_ name : String) -> PokemonApi? {
         for i in 0 ... pokemonsApi.count - 1 {
             if pokemonsApi[i].name == name.lowercased(){
                 pokemonApiReturned = pokemonsApi[i]
+                break
             }
         }
         return pokemonApiReturned

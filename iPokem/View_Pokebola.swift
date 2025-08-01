@@ -93,7 +93,7 @@ struct Pokebola: View {
             if estaNaPokedex {
                 
                 Text("Vou fingir que não vi...")
-                Image("CarameloDesconfiado0\(String(Int.random(in: 1...5)))").resizable().frame(width: 200, height: 200)
+                Image("CarameloDesconfiado0\(String(Int.random(in: 1...8)))").resizable().frame(width: 200, height: 200)
                 Text("Você tentando pegar todos os")
                 Text("\(entrada)").bold()
                 Text("Pra depois vender mais caro na Shopee")
@@ -135,11 +135,14 @@ struct Pokebola: View {
     func procuraPokemonProcurado(_ name : String) -> Bool {
         
         for i in 0 ... (procurados.count - 1) {
-            if procurados[i].name == name {
+            if procurados[i].name == name{
                 procurados[i].hunted = true
+                print("\(i), \(procurados[i].name), \(procurados[i].hunted)")
                 return true
             }
         }
+        
+        print("Veio pro false do mesmo jeito")
         return false
     }
     
