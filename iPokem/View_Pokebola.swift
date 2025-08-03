@@ -16,6 +16,8 @@ struct Pokebola: View {
     @State var ehProcurado : Bool = false
     @State var estaNaPokedex : Bool = false
     @State var contaCassa = 0
+
+    
     var body: some View {
         VStack {
 
@@ -24,7 +26,13 @@ struct Pokebola: View {
                 TextField("", text: $entrada).frame(width: 300, height: 50, alignment: .center).background(.gray.opacity(0.2)).cornerRadius(20)
             }
             Button(action :{
-                contaCassa = 0
+                
+                if contaCassa == 0 {
+                    pokemonsApi.append(pokEasterEgg)
+                    procuraPokemonProcurado("??")
+                    
+                }
+                
                 ehPokemon = true
                 ehProcurado = false
                 estaNaPokedex = false
@@ -36,8 +44,6 @@ struct Pokebola: View {
                         pokemonApi = try await getPokemonApi(entrada)
                         if (ehProcurado && !estaNaPokedex) {
                             pokemonsApi.append(pokemonApi!)
-                            pokemonsApiSearch.append(entrada)
-                            
                         }} catch{
                             ehPokemon = false
                         }
@@ -155,11 +161,6 @@ struct Pokebola: View {
         return false
     }
 
-func novaTentativa() -> Int {
-    contaTentativas += 1
-    return contaTentativas
-    
-}
     
     
     enum GHError: Error {

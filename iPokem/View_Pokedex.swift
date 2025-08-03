@@ -30,58 +30,81 @@ struct Pokedex: View {
                 }
                 print("Status para \(entrada)")
                 print("Está na Pokedex: \(estaNaPokedex)")
+                contaConsulta += 1
             }, label : {
                 Text ("Consultar")
                     .frame(width: 250, height: 50)
                     .foregroundColor(.yellow)
                     .background(.red)
                     .cornerRadius(20)
-                
             })
-            if estaNaPokedex {
-                Text("Informações do Pokemon:")
-                HStack {
-                    VStack (spacing: 10){
+            Text("Informações do Pokemon:")
+            
+            ScrollView(.vertical, showsIndicators: true) {
+                VStack {
+                    ScrollView(.vertical, showsIndicators: true) {
+                    }
+                    if estaNaPokedex {
+                        
+                        
                         HStack {
-                            AsyncImage(url: URL(string: pokemonPokedex?.sprites.frontDefault ?? "")) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                            } placeholder: {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .foregroundColor(.secondary)
+                            VStack (spacing: 15){
+                                HStack {
+                                    AsyncImage(url: URL(string: pokemonPokedex?.sprites.frontDefault ?? "")) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                    } placeholder: {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .frame(width: 150, height: 150)
+                                    
+                                    AsyncImage(url: URL(string: pokemonPokedex?.sprites.backDefault ?? "")) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                    } placeholder: {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .frame(width: 150, height: 150)
+                                }
+                                
+                                
+                                //Text("PokeID:")
+                                if entrada == "??" {
+                                    Text("Você encontrou ??").bold()
+                                    Text("Elu não é Pokemon. Ninguém sabe o que elu é")
+                                    Text("Não sabemos sequer se é Elu")
+                                    Text("O que sabemos é que ")
+                                    Text("não gosta de ser encontrado...").bold()
+                                    Text("De qualquer forma...Parabéns.")
+                                    Text("Agora é só aguentar as consequências").bold()
+                                    Text("da sua curiosidade, tenha um bom dia!").bold()
+                                    
+                                }
+                                Text("PokeID: \(pokemonPokedex!.id)").bold()
+                                Text("Nome: \(pokemonPokedex!.name)").bold()
+                                Text("Peso: \(pokemonPokedex!.weight)").bold()
+                                Text("Altura: \(pokemonPokedex!.height)").bold()
+                                Text("Ordem: \(pokemonPokedex!.order)").bold()
+                                
                             }
-                            .frame(width: 150, height: 150)
                             
-                            AsyncImage(url: URL(string: pokemonPokedex?.sprites.backDefault ?? "")) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                            } placeholder: {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .foregroundColor(.secondary)
-                            }
-                            .frame(width: 150, height: 150)
                         }
                         
-                        
-                        //Text("PokeID:")
-                        Text("PokeID: \(pokemonPokedex!.id)").bold()
-                        Text("Nome: \(pokemonPokedex!.name)").bold()
-                        Text("Peso: \(pokemonPokedex!.weight)").bold()
-                        Text("Altura: \(pokemonPokedex!.height)").bold()
-                        Text("Ordem: \(pokemonPokedex!.order)").bold()
-
+                        if (contaConsulta > 0 && !estaNaPokedex || (pokemonsApi.count == 0 && contaConsulta > 0 )) {
+                            Text("Suposto Pokemon NÃO está na Pokedex")
+                            
+                        }
                     }
-                }
-            }
-                
-            if (contaConsulta > 0) && !estaNaPokedex {
-                Text("Suposto Pokemon NÃO está na Pokedex")
+                    /* fim VStack Info*/            }
             }
         }
+    
     }
 }
         

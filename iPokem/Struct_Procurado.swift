@@ -33,6 +33,8 @@ enum ElementType: String {
     case steel
     case fighting
     case ghost
+    case death
+    case hell
 }
 
 struct Procurado {

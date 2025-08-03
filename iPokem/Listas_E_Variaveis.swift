@@ -5,14 +5,40 @@
 //  Created by Vitor Lopes on 31/07/25.
 //
 
+/*
+ struct PokemonSprites: Decodable {
+     var frontDefault: String
+     var backDefault: String
+ }
+  
+ struct PokemonApi: Decodable {
+     var sprites: PokemonSprites
+     var id: Int
+     var name: String
+     var weight: Int
+     var height: Int
+     var order: Int
+     
+     
+ }
+ */
 
+    let pokEasterEggSprite = PokemonSprites(
+        frontDefault: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5UiK8dMsYUsXOsvPs42lAnK-aJ4FjCSaDgUeVwIclVBkxCKBUDspXW0D0fWmuxHXpsCjLhAoayKiOQ1UqxBOm2p1GYATyZXYy_orYnfHfRSXPYedn1Dax_eE5di2LoWf91WKkjAQUc0M/s1600/JE4.jpg",
+        backDefault: "https://assets.audiomack.com/horrorstories/b04f7a63cbb6eeb921ebd508137aaef1263bf79cda3a5ccc32fcee3e46850835.jpeg"
+    )
+    
+    let pokEasterEgg = PokemonApi(
+        sprites: pokEasterEggSprite,
+        id: 0,
+        name: "??",
+        weight: 99999,
+        height: 99999,
+        order: 99997
+    )
 
-var contaTentativas = 0
+//pokemonsApi.append(pokEasterEgg)
 var pokemonsApi: [PokemonApi] = []
-
-var pokemonsApiSearch : [String] = []
-
-
 var procurados: [Procurado] = [
     Procurado(id:63, name:"abra", types: [.psychic], hunted: false),
     Procurado(id:142, name:"aerodactyl", types: [.rock, .flying], hunted: false),
@@ -165,5 +191,6 @@ var procurados: [Procurado] = [
     Procurado(id:40, name:"wigglytuff", types: [.normal, .fairy], hunted: false),
     Procurado(id:145, name:"zapdos", types: [.electric, .flying], hunted: false),
     Procurado(id:41, name:"zubat", types: [.poison, .flying], hunted: false),
+    Procurado(id:00, name:"??", types: [.death, .hell], hunted: false)
     ]
 
