@@ -11,6 +11,7 @@ import SwiftUI
 struct Pokebola: View {
     @State var catchedPoke : PokemonApi?
     @State var entrada : String = ""
+    @State var processaEntrada = ""
     @State var pokemonApi : PokemonApi?
     @State var ehPokemon : Bool = true
     @State var ehProcurado : Bool = false
@@ -32,12 +33,12 @@ struct Pokebola: View {
                     procuraPokemonProcurado("??")
                     
                 }
-                
+                processaEntrada = entrada
                 ehPokemon = true
                 ehProcurado = false
                 estaNaPokedex = false
-                ehProcurado = procuraPokemonProcurado(entrada.lowercased())
-                estaNaPokedex = procuraPokemonPokedex(entrada.lowercased())
+                ehProcurado = procuraPokemonProcurado(processaEntrada.lowercased())
+                estaNaPokedex = procuraPokemonPokedex(processaEntrada.lowercased())
                 
                 Task {
                     do{
@@ -50,7 +51,7 @@ struct Pokebola: View {
                 
                     }
                 contaCassa += 1
-                print("Status para \(entrada)")
+                print("Status para \(processaEntrada)")
                 print("É Pokemon: \(ehPokemon)")
                 print("É Procurado: \(ehProcurado)")
                 print("Já na Pokedex: \(estaNaPokedex)")
@@ -93,15 +94,20 @@ struct Pokebola: View {
                         .foregroundColor(.secondary)
                 }
                 .frame(width: 150, height: 150)
-                Text("Parabéns! Capturou um Pokemon!")
+                Text("Parabéns!")
+                Text("Capturou um Pokemon Procurado!")
+                Text("Consulte sua Pokedex para")
+                Text("Mais informações sobre o \(processaEntrada).")
+                Text("Atualize Procurados")
+                Text("Para ver o nome desbloqueado")
             }
             
             if estaNaPokedex {
                 
-                Text("Vou fingir que não vi...")
-                Image("CarameloDesconfiado0\(String(Int.random(in: 1...8)))").resizable().frame(width: 200, height: 200)
+                Text("Fingirei que não vi...")
+                Image("CarameloDesconfiado0\(String(Int.random(in: 1...10)))").resizable().frame(width: 200, height: 200)
                 Text("Você tentando pegar todos os")
-                Text("\(entrada)").bold()
+                Text("\(processaEntrada)").bold()
                 Text("Pra depois vender mais caro na Shopee")
             Text("")
                 Text("Esse Pokemon já está na sua Pokedex e")
