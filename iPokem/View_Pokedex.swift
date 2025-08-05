@@ -30,8 +30,8 @@ struct Pokedex: View {
                 if (pokemonPokedex != nil) {
                     estaNaPokedex = true
                 }
-                print("Status para \(processaEntrada)")
-                print("Está na Pokedex: \(estaNaPokedex)")
+ //               print("Status para \(processaEntrada)")
+   //             print("Está na Pokedex: \(estaNaPokedex)")
                 contaConsulta += 1
             }, label : {
                 Text ("Consultar")
@@ -48,11 +48,11 @@ struct Pokedex: View {
             }
                 VStack {
                     VStack {
-                        if processaEntrada == "" {
+                        if processaEntrada == "" && !estaNaPokedex{
                             Text("")
                         } else if  processaEntrada == "??" {
                             Text("O QUE FOI QUE VOCÊ DIGITOU???").bold()
-                            } else {
+                        } else {
                                 Text("Informações do Pokemon:")
                             }
                         }
@@ -90,18 +90,18 @@ struct Pokedex: View {
                         
                         //Text("PokeID:")
                         if processaEntrada == "??" {
-                            Text("Você encontrou ??").bold()
+                            Text("Você encontrou e libertou ??\n").bold()
                             Text("Elu não é um Pokemon")
                             Text("Ninguém sabe o que Elu é")
                             Text("Não sabemos sequer se é Elu")
-                            Text("O que sabemos é que ")
+                            Text("O que sabemos é que")
                             Text("ISSO não gosta de ser encontrado...").bold()
                             Text("De qualquer forma...Parabéns.")
                             Text("Agora é só arcar com").bold()
                             Text("as consequências da sua").bold()
                             Text("curiosidade").bold()
-                            Text("Tenha um bom dia...")
-                            Text(" ")
+                            Text("Tenha um bom dia...\n")
+                            
                         }
                         
                         

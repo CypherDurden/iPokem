@@ -51,11 +51,13 @@ struct Pokebola: View {
                 
                     }
                 contaCassa += 1
+/*
                 print("Status para \(processaEntrada)")
                 print("É Pokemon: \(ehPokemon)")
                 print("É Procurado: \(ehProcurado)")
                 print("Já na Pokedex: \(estaNaPokedex)")
-                }, label : {
+*/
+            }, label : {
                     Text ("Caçar")
                         .frame(width: 150, height: 50)
                         .foregroundColor(.yellow)
@@ -94,12 +96,16 @@ struct Pokebola: View {
                         .foregroundColor(.secondary)
                 }
                 .frame(width: 150, height: 150)
-                Text("Parabéns!")
+            ScrollView(.vertical, showsIndicators: true) {
+                Text("Parabéns!").bold()
+        //        Text("")
                 Text("Capturou um Pokemon Procurado!")
-                Text("Consulte sua Pokedex para")
-                Text("Mais informações sobre o \(processaEntrada).")
-                Text("Atualize Procurados")
-                Text("Para ver o nome desbloqueado")
+          //      Text("")
+                Text("\nConsulte sua Pokedex para")
+                Text("mais informações sobre o \(processaEntrada).")
+                Text("\nAtualize Procurados")
+                Text("para ver o nome desbloqueado")
+                }
             }
             
             if estaNaPokedex {
