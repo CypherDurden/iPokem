@@ -34,7 +34,7 @@
         name: "??",
         weight: 99999,
         height: 99999,
-        order: 99997
+        order: 999997
     )
 
 //pokemonsApi.append(pokEasterEgg)

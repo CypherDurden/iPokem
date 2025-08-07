@@ -46,17 +46,17 @@ struct Pokedex: View {
             default :
                 Text("")
             }
+            VStack {
                 VStack {
-                    VStack {
-                        if processaEntrada == "" && !estaNaPokedex{
-                            Text("")
-                        } else if  processaEntrada == "??" {
-                            Text("O QUE FOI QUE VOCÊ DIGITOU???").bold()
-                        } else {
-                                Text("Informações do Pokemon:")
-                            }
-                        }
-                    ScrollView(.vertical, showsIndicators: true) {
+                    if processaEntrada == "" && !estaNaPokedex{
+                        Text("")
+                    } else if  processaEntrada == "??" {
+                        Text("O QUE FOI QUE VOCÊ DIGITOU???").bold()
+                    } else {
+                        Text("Informações do Pokemon:")
+                    }
+                }
+                ScrollView(.vertical, showsIndicators: true) {
                     
                     if estaNaPokedex {
                         
@@ -89,7 +89,14 @@ struct Pokedex: View {
                         }
                         
                         //Text("PokeID:")
-                        if processaEntrada == "??" {
+                        if processaEntrada != "??" {
+                            Text("PokeID: \(pokemonPokedex!.id)").bold()
+                            Text("Nome: \(pokemonPokedex!.name)").bold()
+                            Text("Peso: \(pokemonPokedex!.weight)").bold()
+                            Text("Altura: \(pokemonPokedex!.height)").bold()
+                            Text("Ordem: \(pokemonPokedex!.order)").bold()
+                            
+                        } else {
                             Text("Você encontrou e libertou ??\n").bold()
                             Text("Elu não é um Pokemon")
                             Text("Ninguém sabe o que Elu é")
@@ -102,21 +109,19 @@ struct Pokedex: View {
                             Text("curiosidade").bold()
                             Text("Tenha um bom dia...\n")
                             
+                            Text("PôkerID: \(pokemonPokedex!.id)").bold()
+                            Text("Nômi: \(pokemonPokedex!.name)").bold()
+                            Text("Pêzu: \(pokemonPokedex!.weight)").bold()
+                            Text("Autúra: \(pokemonPokedex!.height)").bold()
+                            Text("diz0Rd3n & C@øs: \(pokemonPokedex!.order)").bold()
+                            }
+
+                        if (contaConsulta > 0 && !estaNaPokedex || (pokemonsApi.count == 0 && contaConsulta > 0 )) {
+                            Text("Suposto Pokemon NÃO está na Pokedex")
                         }
-                        
-                        
-                        Text("PokeID: \(pokemonPokedex!.id)").bold()
-                        Text("Nome: \(pokemonPokedex!.name)").bold()
-                        Text("Peso: \(pokemonPokedex!.weight)").bold()
-                        Text("Altura: \(pokemonPokedex!.height)").bold()
-                        Text("Ordem: \(pokemonPokedex!.order)").bold()
-                    }
-                    if (contaConsulta > 0 && !estaNaPokedex || (pokemonsApi.count == 0 && contaConsulta > 0 )) {
-                        Text("Suposto Pokemon NÃO está na Pokedex")
                     }
                 }
-                        }
-                    
+            }
 /* fim VStack Info*/            }
             }
         }
