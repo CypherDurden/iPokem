@@ -111,7 +111,10 @@ struct Pokebola: View {
             if estaNaPokedex {
                 
                 Text("Fingirei que não vi...")
-                Image("CarameloDesconfiado0\(String(Int.random(in: 1...10)))").resizable().frame(width: 200, height: 200)
+                Image("CarameloDesconfiado0\(String(Int.random(in: 1...10)))")
+                    .resizable().frame(width: 200, height: 200)
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
                 Text("Você tentando pegar todos os")
                 Text("\(processaEntrada)").bold()
                 Text("Pra depois vender mais caro na Shopee")
