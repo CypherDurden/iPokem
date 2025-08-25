@@ -24,7 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E5B8BC042E3C2B3C00727973 /* iPokem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPokem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B8BC042E3C2B3C00727973 /* PokeGo Type.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokeGo Type.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B8BC112E3C2B3E00727973 /* iPokemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPokemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B8BC1B2E3C2B3E00727973 /* iPokemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPokemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,7 +85,7 @@
 		E5B8BC052E3C2B3C00727973 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5B8BC042E3C2B3C00727973 /* iPokem.app */,
+				E5B8BC042E3C2B3C00727973 /* PokeGo Type.app */,
 				E5B8BC112E3C2B3E00727973 /* iPokemTests.xctest */,
 				E5B8BC1B2E3C2B3E00727973 /* iPokemUITests.xctest */,
 			);
@@ -114,7 +114,7 @@
 			packageProductDependencies = (
 			);
 			productName = iPokem;
-			productReference = E5B8BC042E3C2B3C00727973 /* iPokem.app */;
+			productReference = E5B8BC042E3C2B3C00727973 /* PokeGo Type.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E5B8BC102E3C2B3E00727973 /* iPokemTests */ = {
@@ -409,7 +409,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitor-Lopes.iPokem";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PokeGo Type";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -437,7 +437,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitor-Lopes.iPokem";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PokeGo Type";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

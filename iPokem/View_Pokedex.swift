@@ -53,13 +53,13 @@ struct Pokedex: View {
                     } else if  processaEntrada == "??" {
                         Text("O QUE FOI QUE VOCÊ DIGITOU???").bold()
                     } else {
-                        Text("Informações do Pokemon:")
+                        Text("")
                     }
                 }
                 ScrollView(.vertical, showsIndicators: true) {
                     
                     if estaNaPokedex {
-                        
+                        Text("Informações do Pokemon:")
                         HStack {
                             VStack (spacing: 15){
                                 HStack {
@@ -72,7 +72,7 @@ struct Pokedex: View {
                                         RoundedRectangle(cornerRadius: 20)
                                             .foregroundColor(.secondary)
                                     }
-                                    .frame(width: 150, height: 150)
+                                    .frame(width: 150, height: 250)
                                     
                                     AsyncImage(url: URL(string: pokemonPokedex?.sprites.backDefault ?? "")) { image in
                                         image
@@ -83,12 +83,13 @@ struct Pokedex: View {
                                         RoundedRectangle(cornerRadius: 20)
                                             .foregroundColor(.secondary)
                                     }
-                                    .frame(width: 150, height: 150)
+                                    .frame(width: 150, height: 250)
                                 }
                             }
                         }
                         
                         //Text("PokeID:")
+                        
                         if processaEntrada != "??" {
                             Text("PokeID: \(pokemonPokedex!.id)").bold()
                             Text("Nome: \(pokemonPokedex!.name)").bold()
@@ -114,17 +115,18 @@ struct Pokedex: View {
                             Text("Pêzu: \(pokemonPokedex!.weight)").bold()
                             Text("Autúra: \(pokemonPokedex!.height)").bold()
                             Text("diz0Rd3n & C@øs: \(pokemonPokedex!.order)").bold()
-                            }
-
+                        }
+                    } else {
                         if (contaConsulta > 0 && !estaNaPokedex || (pokemonsApi.count == 0 && contaConsulta > 0 )) {
                             Text("Suposto Pokemon NÃO está na Pokedex")
                         }
                     }
                 }
+                }
             }
-/* fim VStack Info*/            }
+/* fim VStack Info*/}
             }
-        }
+        
             
 #Preview {
     Pokedex()
