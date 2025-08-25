@@ -103,8 +103,6 @@ struct Pokebola: View {
           //      Text("")
                 Text("\nConsulte sua Pokedex para")
                 Text("mais informações sobre o \(processaEntrada).")
-                Text("\nAtualize Procurados")
-                Text("para ver o nome desbloqueado")
                 }
             }
             

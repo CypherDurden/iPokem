@@ -18,7 +18,9 @@ struct Pokedex: View {
     var body: some View {
         VStack (spacing: 40){
             
-            Text("Consultar Pokemons na Pokedex").font(.system(size: 22, weight: .medium ))
+            Text("Consultar Pokemons na Pokedex")
+                .font(.system(size: 22, weight: .medium ))
+                .padding()
             HStack {
                 TextField("", text: $entrada).frame(width: 300, height: 50, alignment: .center).background(.gray.opacity(0.2)).cornerRadius(20)
             }
